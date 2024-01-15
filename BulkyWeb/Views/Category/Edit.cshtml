@@ -1,10 +1,11 @@
 ﻿@model Category
 @{
-    ViewData["Title"] = "Create Category";
+    ViewData["Title"] = "Edit Category";
 }
 
 <form method="post">
     <div class="border p-5 mt-4">
+        <input asp-for="CategoryId" hidden/>
         <div class="row pb-2">
             <h3 class="text-primary">@ViewData["Title"]</h3>
         </div>
@@ -14,7 +15,7 @@
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Description" class="p-0" ></label>
+            <label asp-for="Description" class="p-0"></label>
             <input asp-for="Description" class="form-control" />
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
@@ -27,7 +28,7 @@
         <div class="row">
             <div class="col-6 col-md-3">
                 <button type="submit" class="btn btn-primary form-control">
-                    <i class="bi bi-check-lg"></i> Create
+                    <i class="bi bi-check-lg"></i> Update
                 </button>
             </div>
             <div class="col-6 col-md-3">

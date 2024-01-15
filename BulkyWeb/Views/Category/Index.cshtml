@@ -5,15 +5,24 @@
 }
 
 <div class="container">
+    @{
+        if (TempData["success"]!=null)
+        {
+            <div class="@TempData["variant"]">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>@TempData["success"]</strong>
+            </div>
+        }
+    }
     <div class="row pt-4 pb-3">
         <div class="col-6">
-            <h2 class="text-primary">
+            <h3 class="text-primary">
                 Category List
-            </h2>
+            </h3>
         </div>
         <div class="col-6 text-end">
             <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> Create New Category
+                <i class="bi bi-plus-circle"></i> Create
             </a>
         </div>
     </div>
@@ -35,10 +44,10 @@
                     <td>@item.DisplayOrder</td>
                     <td>
                         <div class="w-75 btn-group" role="group">
-                            <a asp-controller="Category" asp-action="Edit" class="btn btn-primary btn-sm">
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-primary btn-sm">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a asp-controller="Category" asp-action="Delete" class="btn btn-danger btn-sm">
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger btn-sm">
                                 <i class="bi bi-trash3"></i>
                             </a>
                         </div>
